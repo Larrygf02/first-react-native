@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
  
 class HelloWorld extends Component {
   constructor(props) {
@@ -9,13 +9,28 @@ class HelloWorld extends Component {
       user: 'peque'
     }
   }
+  toogleUser = () => {
+    let { name } = this.state 
+    if (name === 'Grace') {
+      this.setState({
+        user: 'Larry',
+        name: 'Raul'
+      })
+    }else {
+      this.setState({
+        user: 'peque',
+        name: 'Grace'
+      })
+    }
+  }
   render() {
-    const { name, user } = this.state
+    let { name, user } = this.state
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Manejo del Estado</Text>
         <Text>Name: {name}</Text>
         <Text>User: {user} </Text>
+        <Button title="Toogle usuario" onPress={this.toogleUser  }></Button>
       </View>
     )
   }
