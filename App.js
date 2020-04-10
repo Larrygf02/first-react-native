@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import LoginInit from './src/components/LoginInit'
+import ListUsers from './src/components/ListUser'
 
 class HelloWorld extends Component {
 
   render() {
     return (
-      <LoginInit></LoginInit>
+      <ListUsers></ListUsers>
     )
   }
 }
