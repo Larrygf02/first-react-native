@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native'
  
 class HelloWorld extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: 'Grace',
-      user: 'peque'
+      user: 'peque',
+      msg: ''
     }
   }
   toogleUser = () => {
@@ -24,13 +25,15 @@ class HelloWorld extends Component {
     }
   }
   render() {
-    let { name, user } = this.state
+    let { name, user, msg } = this.state
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Manejo del Estado</Text>
         <Text>Name: {name}</Text>
         <Text>User: {user} </Text>
-        <Button title="Toogle usuario" onPress={this.toogleUser  }></Button>
+        <Text>Mensaje: {msg}</Text>
+        <TextInput placeholder="Mensaje" onChangeText={ (msg) => this.setState({ msg})}></TextInput>
+        <Button title="Toogle usuario" onPress={this.toogleUser}></Button>
       </View>
     )
   }
