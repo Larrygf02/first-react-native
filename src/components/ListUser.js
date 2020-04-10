@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 
 function ListUsers() {
     const [people, setPeople] = useState([
-        { name: 'Grace', key: '1'},
         { name: 'Raul', key: '2'},
         { name: 'Josue', key: '3'},
         { name: 'Yeli', key: '4'},
+        { name: 'Grace', key: '1'},
         { name: 'Ernesto', key: '5'},
         { name: 'Juan', key: '6'},
     ])
     return (
         <View style={styles.container}>
-            { people.map((item) => {
-                return (
+            <ScrollView>
+                { people.map( item => (
                     <View key={item.key}>
                         <Text style={styles.item}>{item.name}</Text>
                     </View>
-                )
-            })}
+                ))}
+            </ScrollView>
         </View>
     )
 }
