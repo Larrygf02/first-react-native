@@ -37,8 +37,8 @@ class LoginInit extends Component {
         : 
         <View>
             <Text style={styles.title}>Login de Usuario</Text>
-            <TextInput placeholder="User" onChangeText={ (user) => this.setState({ user})}></TextInput>
-            <TextInput placeholder="Name" onChangeText={ (name) => this.setState({ name})}></TextInput>
+            <TextInput style={styles.input} placeholder="User" onChangeText={ (user) => this.setState({ user})}></TextInput>
+            <TextInput style={styles.input} placeholder="Name" onChangeText={ (name) => this.setState({ name})}></TextInput>
             <Button title="Login" onPress={this.login}></Button>
         </View>
         }
@@ -57,6 +57,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 10
+    },
+    input: {
+        borderWidth: 1,
+        borderRadius: 20,
+        borderColor: '#777',
+        padding: 8,
+        margin: 10,
+        width: 200
     }
 })
 
