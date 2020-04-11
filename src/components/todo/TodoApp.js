@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Alert } from 'react-native'
 import Item from './Item';
 import Header from './Header';
 import Form from './Form';
@@ -12,12 +12,16 @@ function TodoApp() {
   ]);
 
   const submitHandler = (text) => {
-    setTodos((prevTodos) => {
-      return [
-        { text, key: Math.random().toString()},
-        ...prevTodos,
-      ]
-    })
+    if (text !== ""){
+      setTodos((prevTodos) => {
+        return [
+          { text, key: Math.random().toString()},
+          ...prevTodos,
+        ]
+      })
+    }else {
+      Alert.alert('Opps', 'Todos must be not empty')
+    }
   }
 
   const pressHandler = (key) => {
