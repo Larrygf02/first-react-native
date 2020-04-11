@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import Header from './src/components/todo/Header'
 import Item from './src/components/todo/Item'
+import Form from './src/components/todo/Form'
 
 function App() {
   const [todos, setTodos] = useState([
@@ -9,6 +10,15 @@ function App() {
     { text: 'Study english', key: '2'},
     { text: 'Learn react native', key: '3'},
   ]);
+
+  const submitHandler = (text) => {
+    setTodos((prevTodos) => {
+      return [
+        { text, key: Math.random().toString()},
+        ...prevTodos,
+      ]
+    })
+  }
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
@@ -22,6 +32,7 @@ function App() {
       <Header></Header>
       <View style={styles.content}>
         {/* to form */}
+        <Form submitHandler={submitHandler}></Form>
         <View style={styles.list}>
           <FlatList 
           data={todos}
