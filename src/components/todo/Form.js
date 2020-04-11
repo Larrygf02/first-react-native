@@ -6,14 +6,20 @@ function Form({submitHandler}) {
     const changeHandler = (val) => {
         setText(val)
     }
+    const submit = (text) => {
+        submitHandler(text)
+        setText('')
+    }
+    
     return (
         <View>
             <TextInput
             style={styles.input}
             placeholder="New Item..."
+            value={text}
             onChangeText={changeHandler}>
             </TextInput>
-            <Button onPress={() => submitHandler(text)} title="Add" color='coral'></Button>
+            <Button onPress={() => submit(text)} title="Add" color='coral'></Button>
         </View>
     )
 }
