@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import TodoApp from './src/components/todo/TodoApp'
+import * as Font from 'expo-font'
+import Home from './src/components/review/home'
+import { AppLoading } from 'expo'
 
-function App() {
-  return (
-    <View style={styles.container}>
-      <TodoApp></TodoApp>
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  }
+const getFonts = () => Font.loadAsync({
+  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
+  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf')
 })
 
+
+function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false)
+  if (fontsLoaded) {
+    return (
+      <Home></Home>
+    )
+  }else {
+    return (
+      <AppLoading
+      startAsync={getFonts}
+      onFinish={() => setFontsLoaded(true)}>
+      </AppLoading> 
+    )
+  }
+}
 export default App
