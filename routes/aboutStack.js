@@ -1,28 +1,22 @@
 import { createStackNavigator } from 'react-navigation-stack'
 import Home from '../src/components/review/home'
+import About from '../src/components/review/about'
 import ReviewDetails from '../src/components/review/reviewDetails'
 
-const screens = {
-    Home: {
-        screen: Home,
+const screens = { 
+    About: {
+        screen: About,
         navigationOptions: {
-            title: 'GameZone',
-            //headerStyle: { backgroundColor: '#eee' }
-        }
-    },
-    ReviewDetails: {
-        screen: ReviewDetails,
-        navigationOptions: {
-            title: 'Review Details',
+            title: 'About GameZone',
             //headerStyle: { backgroundColor: '#eee' }
         }
     }
 }
-const HomeStack = createStackNavigator(screens, {
+const AboutStack = createStackNavigator(screens, {
     defaultNavigationOptions: {
         headerTintColor: '#444',
         headerStyle: { backgroundColor: '#eee', height: 60 }
     }
 })
 
-export default HomeStack
+export default AboutStack
