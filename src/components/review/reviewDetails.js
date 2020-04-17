@@ -6,22 +6,14 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 function ReviewDetails({navigation}){
     const [icon, setIcon ] = useState('staro')
+    const [puntaje, setPuntaje ] = useState(2)
+    const stars = [1,2,3,4,5]
     const pressHandler = () => {
         navigation.navigate('Home')
         //navigation.push('ReviewDetails')
     }
     const setRating = () => {
         console.log('Hello')
-    }
-    const stars = [1,2,3,4,5]
-    const shouldPaintIcon = (num) => {
-        if (icon == 'staro') {
-            setIcon('star')
-            return 'star'
-        }else{
-            setIcon('staro')
-            return 'staro'
-        }
     }
     return (
         <View style={globalStyles.container}>
@@ -30,10 +22,13 @@ function ReviewDetails({navigation}){
                 <Text>{navigation.getParam('body')}</Text>
                 <Text>{navigation.getParam('rating')}</Text>
                 <View style={styles.ratings}>
-                    {stars.map((star) => {
-                        console.log(star)
+                    {stars.map((indice) => {
+                        let name = 'star'
+                        if (indice > puntaje) {
+                            name = 'staro'
+                        }
                         return (
-                            <Icon name="staro" size={25} />
+                            <Icon name={name} size={25} onPress={() => setPuntaje(indice)}/>
                         )
                     })}
                 </View>
