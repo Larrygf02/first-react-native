@@ -3,7 +3,6 @@ import { Video } from 'expo-av'
 class VideoExpo extends Component {
     render() {
         return (
-
             <Video
             source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
             rate={1.0}
