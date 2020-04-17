@@ -9,7 +9,9 @@ function ReviewDetails({navigation}){
     }
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.titleText}>ReviewDetails Screen</Text>
+            <Text>{navigation.getParam('title')}</Text>
+            <Text>{navigation.getParam('body')}</Text>
+            <Text>{navigation.getParam('rating')}</Text>
             <Button title="Go to home" onPress={pressHandler}></Button>
         </View>
     )
