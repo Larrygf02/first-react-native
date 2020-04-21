@@ -15,6 +15,9 @@ class App extends Component {
           <View style={styles.image}>
             <Image source={require('./assets/face-man.jpg')} style={{ flex: 1, width: null, height: null}}></Image>
           </View>
+          <View>
+            <Text style={styles.profile_text}>Raul</Text>
+          </View>
         </ScrollView>
       </View>
     )
@@ -42,6 +45,13 @@ const styles = StyleSheet.create({
     borderRadius: PROFILE_IMAGE_MAX_HEIGHT/2,
     borderColor: 'white',
     borderWidth: 3,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginTop: HEADER_MAX_HEIGHT - (PROFILE_IMAGE_MAX_HEIGHT/ 2),
+    marginLeft: 10
+  },
+  profile_text: {
+    fontWeight: 'bold',
+    fontSize: 26,
+    paddingLeft: 10
   }
 })
