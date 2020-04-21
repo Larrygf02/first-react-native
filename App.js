@@ -1,27 +1,34 @@
-import React, { useState } from 'react'
-import * as Font from 'expo-font'
-import Home from './src/components/review/home'
-import { AppLoading } from 'expo'
-import Navigator from './routes/drawer'
-const getFonts = () => Font.loadAsync({
-  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
-  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf')
-})
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native'
 
+HEADER_MAX_HEIGHT = 120
+HEADER_MIN_HEIGHT = 70
+PROFILE_IMAGE_MAX_HEIGHT = 80
+PROFILE_IMAGE_MIN_HEIGHT = 40
 
-function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false)
-  if (fontsLoaded) {
+class App extends Component {
+  render() {
     return (
-      <Navigator></Navigator>
-    )
-  }else {
-    return (
-      <AppLoading
-      startAsync={getFonts}
-      onFinish={() => setFontsLoaded(true)}>
-      </AppLoading> 
+      <View styles={{ flex: 1 }}>
+        <View style={styles.header}></View>
+      </View>
     )
   }
 }
-export default App
+
+export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  header: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'lightskyblue',
+    height: HEADER_MAX_HEIGHT
+  }
+})
