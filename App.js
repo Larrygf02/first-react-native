@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native'
 
-HEADER_MAX_HEIGHT = 120
 HEADER_MIN_HEIGHT = 70
+HEADER_MAX_HEIGHT = 120
 PROFILE_IMAGE_MAX_HEIGHT = 80
 PROFILE_IMAGE_MIN_HEIGHT = 40
 
@@ -11,6 +11,11 @@ class App extends Component {
     return (
       <View styles={{ flex: 1 }}>
         <View style={styles.header}></View>
+        <ScrollView>
+          <View style={styles.image}>
+            <Image source={require('./assets/face-man.jpg')} style={{ flex: 1, width: null, height: null}}></Image>
+          </View>
+        </ScrollView>
       </View>
     )
   }
@@ -30,5 +35,13 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: 'lightskyblue',
     height: HEADER_MAX_HEIGHT
+  },
+  image: {
+    height: PROFILE_IMAGE_MAX_HEIGHT,
+    width: PROFILE_IMAGE_MAX_HEIGHT,
+    borderRadius: PROFILE_IMAGE_MAX_HEIGHT/2,
+    borderColor: 'white',
+    borderWidth: 3,
+    overflow: 'hidden'
   }
 })
