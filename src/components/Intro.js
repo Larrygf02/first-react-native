@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     },
     negrita: {
       fontWeight: 'bold',
-      fontSize: 20,
+      fontSize: 21,
       color: 'white'
     },
     logo: {
